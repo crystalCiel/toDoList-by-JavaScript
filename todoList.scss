@@ -1,0 +1,42 @@
+.undone {
+    &.clickUndown{
+        display: none;
+
+    }
+}
+
+.done {
+    &.clickDown{
+        display: none;
+
+    }
+}
+
+.todoList {
+    display: flex;
+    margin: 10px;
+}
+
+.textItem {
+    margin: 0 10px;
+
+    &.complete {
+        text-decoration: line-through;
+    }
+}
+
+.subtotal {
+    margin: 10px;
+}
+
+.totalLabel {
+    box-sizing : border-box;
+    // border: 1px black solid;
+    margin: 10px;
+    text-decoration: underline;
+    // padding: 5px;
+    cursor: pointer;
+    
+}
+
+//sass todoList.scss todoList.css
