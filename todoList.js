@@ -17,98 +17,6 @@ function subTotal (itemNumber, doneNumber, undoneNumber) {
     undoneItemTotal.innerHTML = '未完成' + undoneItemTotalNumber;
 }
 
-// 舊的新增 todo list 的函數
-// function addList () {
-//     let item = newItem.value;
-//     newItem.value = '';
-//     console.log('加入新的項目',item);
-
-//     if (item === '') { // 擋未輸入的部分
-//         alert('未輸入文字');
-//     } else {
-//         let todoList = document.createElement('div');
-//         let checkBox = document.createElement('input');
-//         let todoText = document.createElement('div');
-//         let reviseText = document.createElement('input');
-//         let reWriteBtn = document.createElement('button');
-//         let deletBtn = document.createElement('button');
-
-//         // 組合一項新的項目
-//         todoList.classList.add('todoList');
-//         table.appendChild(todoList);
-
-//         checkBox.classList.add('checkbox');
-//         checkBox.setAttribute('type','checkBox');
-//         todoList.appendChild(checkBox);
-
-//         todoText.classList.add('textItem');
-//         todoText.innerText = item;
-//         todoList.appendChild(todoText);
-
-//         reviseText.classList.add('reviseText');
-//         reviseText.setAttribute('value', item);
-//         todoList.appendChild(reviseText);
-//         reviseText.style.display = 'none';
-
-//         reWriteBtn.classList.add('reWriteBtn');
-//         reWriteBtn.innerText = '編輯';
-//         todoList.appendChild(reWriteBtn);
-
-//         deletBtn.classList.add('deleteBtn');
-//         deletBtn.innerText = '刪除';
-//         todoList.appendChild(deletBtn);
-
-//         itemTotalNumber += 1;
-//         undoneItemTotalNumber +=1;
-//         // itemTotal.innerHTML = '全部' + itemTotalNumber;
-//         subTotal(itemTotalNumber, doneItemTotalNumber, undoneItemTotalNumber);
-
-//         // 按鈕的功能
-//         checkBox.addEventListener('click',() => {
-//             if (checkBox.checked) {
-//                 undoneItemTotalNumber -= 1;
-//                 doneItemTotalNumber += 1;
-//             } else {
-//                 undoneItemTotalNumber += 1;
-//                 doneItemTotalNumber -= 1;
-//             }
-
-//             subTotal(itemTotalNumber, doneItemTotalNumber, undoneItemTotalNumber);
-//         });
-
-//         reWriteBtn.addEventListener('click',() => {
-
-//             if (reWriteBtn.innerText === '編輯') {
-//                 todoText.style.display = 'none';
-//                 reviseText.style.display = 'block';
-//                 reWriteBtn.innerText = '完成';
-//             } else {
-//                 let text = reviseText.value;
-//                 todoText.innerText = text;
-//                 todoText.style.display = 'block';
-//                 reviseText.style.display = 'none';
-//                 reWriteBtn.innerText = '編輯';
-//             }
-            
-//             console.log('更改 / 完成')
-            
-//         });
-
-//         deletBtn.addEventListener('click',() => { //是不是要有提示窗??
-//             table.removeChild(todoList);
-//             itemTotalNumber -= 1;
-//             if (checkBox.checked) {
-//                 doneItemTotalNumber -= 1;
-//             } else {
-//                 undoneItemTotalNumber -= 1;
-//             }
-
-//             subTotal(itemTotalNumber, doneItemTotalNumber, undoneItemTotalNumber);
-//         });
-
-//     }
-// }
-
 class todoList { // todo list class
     constructor (tableId) {
         this.table = document.querySelector(tableId);
@@ -160,8 +68,10 @@ class todoList { // todo list class
             this.reWriteFunction();
         });
 
-        this.deletBtn.addEventListener('click',() => { //是不是要有提示窗??
-            this.deleteFunction();
+        this.deletBtn.addEventListener('click',() => { 
+            if (confirm(`是否確認刪除「${this.todoText.innerText}」?`)) {
+                this.deleteFunction();
+            }
         });
 
         this.reviseText.addEventListener('blur',() => {
@@ -214,8 +124,6 @@ class todoList { // todo list class
             this.reviseText.style.display = 'none';
             this.reWriteBtn.innerText = '編輯';
         }
-        
-        // console.log('更改 / 完成');
     }
 
     deleteFunction () {
@@ -235,24 +143,14 @@ class todoList { // todo list class
 addNewItemBtn.innerHTML = '新增';
 subTotal(itemTotalNumber, doneItemTotalNumber, undoneItemTotalNumber);
 
-// 監聽整個頁面的鍵盤事件
-// document.onkeydown = function (e) {
-    // if (e.keyCode === 13) { // push enter
-    //     addList();
-    //     console.log();
-    // }
-
-// }
-
-
-// 舊的方式
-// addNewItemBtn.addEventListener('click', () => addList());
 
 addNewItemBtn.addEventListener('click', () => {
     let newItemValue = newItem.value;
     if (newItemValue !== '') {
         new todoList('.todoListTable').created(newItemValue);
         newItem.value = '';
+    } else {
+        alert('未輸入文字');
     }
 });
 
@@ -294,3 +192,9 @@ undoneItemTotal.addEventListener('click', () => {
         list[ii].classList.add('clickDown');
     }
 })
+
+
+// tester
+// for (let ii = 0; ii < 10; ii++) {
+//     new todoList('.todoListTable').created('123_' + ii);
+// }

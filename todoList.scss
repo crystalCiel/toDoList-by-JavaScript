@@ -1,3 +1,53 @@
+$fontSize: 18px;
+$phone_fontSize: 20px;
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202124;
+    color: white;
+    font-size: #{$fontSize};
+
+    @media screen and ( max-width: 500px ) {
+        font-size: #{$phone_fontSize};
+    }
+}
+
+.container {
+    width: 500px;
+    min-height: 90vh;
+    border: gainsboro 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+
+    @media screen and ( max-width: 500px ) {
+        width: 100%;
+    }
+
+    > .inputArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px 0px;
+
+        > #newTodoItem {
+            height: 25px;
+            width: 80%;
+            font-size: #{$fontSize};
+            border-radius: 5px;
+
+            @media screen and ( max-width: 500px ) {
+                height: 35px;
+                width: 75%;
+                font-size: #{$phone_fontSize};
+            }
+        }
+    }
+}
+
+
 .undone {
     &.clickUndown{
         display: none;
@@ -14,18 +64,40 @@
 
 .todoList {
     display: flex;
-    margin: 10px;
+    margin: 10px 0;
+
+    >.checkbox {
+        width: #{$fontSize};
+        height: #{$fontSize};
+
+        @media screen and ( max-width: 500px ) {
+            width: #{$phone_fontSize};
+            height: #{$phone_fontSize};
+        }
+    }
 }
 
 .textItem {
+    max-width: 60%;
+    word-break: break-all;
     margin: 0 10px;
 
     &.complete {
         text-decoration: line-through;
     }
+
+    @media screen and ( max-width: 500px ) {
+        max-width: 40%;
+    }
+
+    @media screen and ( max-width: 361px ) {
+        max-width: 35%;
+    }
 }
 
 .subtotal {
+    display: flex;
+    justify-content: space-around;
     margin: 10px;
 }
 
@@ -37,6 +109,37 @@
     // padding: 5px;
     cursor: pointer;
     
+}
+
+button {
+    width: 50px;
+    height: 30px;
+    border: gainsboro 1px solid;
+    border-radius: 10px;
+    background-color: inherit;
+    color: gainsboro;
+    margin: 0 5px;
+    font-size: #{$fontSize};
+    outline: 0;
+    cursor: pointer;
+
+    @media screen and ( max-width: 500px ) {
+        width: 70px;
+        height: 40px;
+        font-size: #{$phone_fontSize};
+    }
+}
+
+input {
+    width: 65%;
+    font-size: #{$fontSize};
+    border-radius: 5px;
+    outline: none;
+
+    @media screen and ( max-width: 500px ) {
+        font-size: #{$phone_fontSize};
+        width: 45%;
+    }
 }
 
 //sass todoList.scss todoList.css
