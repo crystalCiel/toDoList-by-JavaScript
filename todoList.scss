@@ -124,12 +124,13 @@ button {
     cursor: pointer;
 
     @media screen and ( max-width: 500px ) {
-        width: 70px;
+        // width: 70px;
         height: 40px;
         // font-size: #{$phone_fontSize};
     }
 
     @media screen and ( max-width: 850px ) {
+        width: 70px;
         font-size: #{$phone_fontSize};
     }
 }
