@@ -8,7 +8,7 @@ body {
 }
 @media screen and (max-width: 500px) {
   body {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -40,7 +40,7 @@ body {
   .container > .inputArea > #newTodoItem {
     height: 35px;
     width: 75%;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -62,8 +62,8 @@ body {
 }
 @media screen and (max-width: 500px) {
   .todoList > .checkbox {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -115,7 +115,7 @@ button {
   button {
     width: 70px;
     height: 40px;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -127,7 +127,7 @@ input {
 }
 @media screen and (max-width: 500px) {
   input {
-    font-size: 20px;
+    font-size: 16px;
     width: 45%;
   }
 }
