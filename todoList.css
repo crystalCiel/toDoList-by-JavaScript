@@ -6,7 +6,7 @@ body {
   color: white;
   font-size: 18px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
   body {
     font-size: 16px;
   }
@@ -115,6 +115,10 @@ button {
   button {
     width: 70px;
     height: 40px;
+  }
+}
+@media screen and (max-width: 850px) {
+  button {
     font-size: 16px;
   }
 }

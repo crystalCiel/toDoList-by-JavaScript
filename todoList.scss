@@ -10,7 +10,7 @@ body {
     color: white;
     font-size: #{$fontSize};
 
-    @media screen and ( max-width: 500px ) {
+    @media screen and ( max-width: 850px ) {
         font-size: #{$phone_fontSize};
     }
 }
@@ -126,6 +126,10 @@ button {
     @media screen and ( max-width: 500px ) {
         width: 70px;
         height: 40px;
+        // font-size: #{$phone_fontSize};
+    }
+
+    @media screen and ( max-width: 850px ) {
         font-size: #{$phone_fontSize};
     }
 }
