@@ -44,6 +44,7 @@ class todoList { // todo list class
 
         this.reviseText.classList.add('reviseText');
         this.reviseText.setAttribute('value', content);
+        this.reviseText.setAttribute('placeholder', '刪除此代辦事項');
         this.todoList.appendChild(this.reviseText);
         this.reviseText.style.display = 'none';
 
@@ -76,7 +77,12 @@ class todoList { // todo list class
 
         this.reviseText.addEventListener('blur',() => {
             if (this.reviseSwitch === '') {
-                this.reWriteFunction();
+
+                if (this.reviseText.value.length < 1) {
+                    this.deleteFunction();
+                } else {
+                    this.reWriteFunction();
+                }
 
             }
         });
@@ -84,7 +90,12 @@ class todoList { // todo list class
         this.reviseText.addEventListener('keyup',(e) => {
             if( e.keyCode === 13 ){
                 this.reviseSwitch = 'keyup';
-                this.reWriteFunction();
+
+                if (this.reviseText.value.length < 1) {
+                    this.deleteFunction();
+                } else {
+                    this.reWriteFunction();
+                }
             }
         }, false);
     }
@@ -139,7 +150,7 @@ class todoList { // todo list class
     }
 }
 
-
+newItem.setAttribute('placeholder', '新增代辦事項');
 addNewItemBtn.innerHTML = '新增';
 subTotal(itemTotalNumber, doneItemTotalNumber, undoneItemTotalNumber);
 
